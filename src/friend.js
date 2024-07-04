@@ -13,7 +13,7 @@ function Friend()
                 window.location.href="/login"
             }
             else{
-                axios.get("http://localhost:2006/friend").then((res)=>{
+                axios.get("https://sendchatback.onrender.com/friend").then((res)=>{
                     getdata(res.data.friend)
             
                    

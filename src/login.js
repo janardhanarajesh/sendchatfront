@@ -40,14 +40,26 @@ window.location.href="/friend"
     
     return(
         <div>
+            <center>
+        <div id="logdiv">
+        <br/>
+        <br/>
+
             <form onSubmit={login}>
-                <input type="text" onChange={(e)=>stulog({...logdat,name:e.target.value})} required/>
+                <input type="text" onChange={(e)=>stulog({...logdat,name:e.target.value})} required className="inplog" placeholder="name"/>
                 <br/>
-                <input type="password" onChange={(e)=>stulog({...logdat,password:e.target.value})} required/>
                 <br/>
-                <input type="submit"/>
+                <br/>
+
+                <input type="password" onChange={(e)=>stulog({...logdat,password:e.target.value})} required className="inplog" placeholder="password"/>
+                <br/>
+                <br/>
+
+                <input type="submit" style={{height:"30px"}} value="login"/>
 
             </form>
+        </div>
+        </center>
         </div>
     )
 

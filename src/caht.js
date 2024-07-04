@@ -49,7 +49,7 @@ function Chat()
         axios.post('https://sendchatback.onrender.com/postchat',data).then((response)=>{
     if(response.data.msg=="sent")
         {
-            alert("sent");
+            document.getElementById("chat").value=""
         }
         else{
             alert("not sent")
@@ -59,29 +59,36 @@ function Chat()
     }
     // c onsole.log(chat)
    
+    const delchat=(e)=>{
+e.preventDefault();
+axios.delete("http://localhost:2006/delchat/"+e).then((re)=>{
+alert(re.data.msg)
+})
+    }
     return(
-<div>
+<div id="chatdiv">
     <div style={{float:"left"}}>your id:<b>{localStorage.getItem("userlog")}</b></div>
     <div style={{float:"right"}}>friend id:<b>{localStorage.getItem("friendname")}</b></div>
 
     <form onSubmit={send}>
-        <label>chat here</label>
+       
         <input
               type="text"
-              placeholder="enter here"
+              placeholder="enter chat here"
             id="chat"
               required
             />
-            <input type="submit"/>
+            <button type="submit" style={{height:"36px",width:"60px"}}><i class="fa-solid fa-paper-plane"></i></button>
     </form>
-    <div>
+    <center>
+    <div id="insidechat">
         <center>
         <table>
             <td>
                 {
                     chat.map((ele,i)=>{
                         return(
-                            <div>
+                            <div style={{border:"1px solid black"}} >
                             
                                 <tr> 
                                 sender: {ele.sender}
@@ -91,7 +98,13 @@ function Chat()
                                    reciver: {ele.reciver}
                                 </tr>
                                 <tr>
-                                    {ele.chating}
+                                    <div id="mag">
+                                 message:   {ele.chating}
+                                 </div>
+                                </tr>
+                                <tr>
+                            
+                            <button onclick={()=>delchat(ele._id)} >delete</button>
                                 </tr>
                                 <br/>
                             </div>
@@ -103,6 +116,7 @@ function Chat()
         </table>
         </center>
     </div>
+    </center>
 </div>
     )
 }

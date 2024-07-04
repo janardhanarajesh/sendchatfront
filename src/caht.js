@@ -15,7 +15,7 @@ function Chat()
             }
     },[1])
     useEffect(()=>{
-        axios.get("http://localhost:2006/getchat/"+sender+"/"+reciver).then((resp)=>{
+        axios.get("https://sendchatback.onrender.com/getchat/"+sender+"/"+reciver).then((resp)=>{
            if (resp.data.msg=="chat")
             {
              
@@ -46,7 +46,7 @@ function Chat()
 
         };
 //     console.log(reciver)
-        axios.post('http://localhost:2006/postchat',data).then((response)=>{
+        axios.post('https://sendchatback.onrender.com/postchat',data).then((response)=>{
     if(response.data.msg=="sent")
         {
             alert("sent");

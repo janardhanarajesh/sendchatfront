@@ -28,7 +28,7 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes regsipn{
   from {
     transform: rotate(0deg);
   }
@@ -38,4 +38,91 @@
 }
 td{
   width: 500px;
+}
+#menudiv{
+  height: 50px;
+  /* width: 200px; */
+  background-color: orange;
+}
+.subdivmenu{
+  height: 50px;
+  width: 250px;
+  float: left;
+  
+
+  
+  /* float: left; */
+
+}
+.menulinik{
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+
+}
+#submenu{
+  height: 50px;
+  width: 500px;
+}
+#regsdiv{
+  height: 300px;
+  margin-top: 100px;
+  width: 400px;
+  animation-name: regsipn;
+  animation-iteration-count: 2;
+  animation-duration: 1;
+  box-shadow: 2px 2px 5px black;
+
+  border-radius: 10px;
+  background:linear-gradient(to bottom right,green,white);
+}
+.laab{
+  float: left;
+  margin-left:200px;
+}
+input{
+  height: 20px;
+font-size: 16px;
+}
+#logdiv{
+  height: 200px;
+  width: 400px;
+  background:linear-gradient(to top right,blue,white);
+  box-shadow: 2px 2px 5px black;
+  border-radius: 10px;
+  margin-top: 100px;
+}
+#logout{
+  height: 30px;
+  float: right;
+}
+.row{
+  height: 40px;
+  background-color: lightgray;
+  border: 1px solid black;
+
+}
+#friend{
+  background-color: lightgray;
+  
+}
+#chatdiv{
+  background-color: lightgray;
+}
+#insidechat{
+  height:auto;
+  width: 500px;
+  background-color:lightcyan;
+  box-shadow: 1px 1px 2px black;
+  border-radius: 10px;
+}
+#chat{
+  height: 30px;
+  width: 300px;
+}
+#mag{
+  width: 300px;
+  word-wrap:"break-word"
+  
 }

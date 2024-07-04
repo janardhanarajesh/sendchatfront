@@ -13,10 +13,10 @@ let nameu=studenti.name
   const check = (e) => {
     e.preventDefault();
 
-    axios.get("http://localhost:2006/checkdata/"+nameu)
+    axios.get("https://sendchatback.onrender.com/checkdata/"+nameu)
       .then((ret) => {
         if (ret.data.msg=="no") {
-          axios.post('http://localhost:2006/register', studenti)
+          axios.post('https://sendchatback.onrender.com/register', studenti)
             .then((res) => {
               alert(res.data.msg);
               window.location.reload();

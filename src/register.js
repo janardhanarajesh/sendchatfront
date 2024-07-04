@@ -37,9 +37,9 @@ let nameu=studenti.name
     <div id="fro">
       <center id="fr">
         <div id="regsdiv">
-          <h1 id="regshed">Registration</h1>
+          <h1 id="regshed">sign up</h1>
           <form onSubmit={check} action="#" autoComplete="off">
-            <label className="laab">Name:</label>
+         
             <input
               type="text"
               placeholder="name"
@@ -48,8 +48,11 @@ let nameu=studenti.name
               required
             />
             <br />
+            <br />
+          
 
-            <label className="laab">Password:</label>
+
+        
             <input
               id="passreg"
               type="password"
@@ -58,8 +61,10 @@ let nameu=studenti.name
               required
             />
             <br />
+            <br />
+            
 
-            <label className="laab">Mail:</label>
+          
             <input
               type="email"
               placeholder="recoverymail"
@@ -68,7 +73,7 @@ let nameu=studenti.name
             />
             <br /><br />
 
-            <input type="submit" value="register" />
+            <input type="submit" value="register" style={{height:"30px"}} />
           </form>
           <p>Already registered? <Link to="/login">Click here</Link></p>
         </div>

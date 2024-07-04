@@ -13,7 +13,7 @@ function Login()
    const login=(e)=>{
 e.preventDefault();
 // console.log(user,pass)
-axios.get("http://localhost:2006/findata/"+user+"/"+pass).then((res)=>{
+axios.get("https://sendchatback.onrender.com/findata/"+user+"/"+pass).then((res)=>{
     console.log(res.data.msg)
     if(res.data.msg=="no")
         {

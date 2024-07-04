@@ -40,7 +40,7 @@ const logout=()=>{
     return(
 
         <div>
-            <button onClick={logout}>logout</button>
+            <button onClick={logout} id="logout">logout</button>
 
             <div id="friend">
                 <table>
@@ -50,17 +50,17 @@ const logout=()=>{
                     usedata.map((ele,i)=>{
                         return(
                         <div>
-                            <td>
-                        <tr>id:{ele._id}</tr>
-</td>
-<td>
-                        <tr>{ele.name}</tr>
-                        </td>
-                        <td>
+                            <tr  >
+                        <td className="row">id:{ele._id}</td>
+
+
+                        <td className="row">{ele.name}</td>
+                    
+                       
                             <center>
-                        <tr><button onClick={()=>cont(ele.name)}  >chat</button></tr>
+                     <td className="row">  <button onClick={()=>cont(ele.name)}  >chat</button></td> 
                         </center>
-                        </td>
+                      </tr>
                         </div>
                         )
                     })

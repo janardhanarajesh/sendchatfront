@@ -4,8 +4,11 @@ import { useEffect, useState,useRef } from "react"
 function Chat()
 {
 
-    const [chat,getchat]=useState([])
-    const audioRef = useRef(null);
+    const [chat,getchat]=useState([]);
+    const [prevChat, setPrevChat] = useState([]);
+    const sentaudio = useRef(null);
+    const reciveaudio = useRef(null);
+
 
     useEffect(()=>{
         if(!localStorage.getItem("userlog"))
@@ -21,8 +24,15 @@ function Chat()
             {
 
                 getchat(resp.data.chat);
-                
- 
+                const newChat = resp.data.chat;
+                if (JSON.stringify(newChat) !== JSON.stringify(prevChat)) {
+                    getchat(newChat);
+                    setPrevChat(newChat);
+                    if (reciveaudio.current) {
+                      reciveaudio.current.play();
+                    }
+                  }
+    
             }
             else{
                 alert("new chat")
@@ -45,15 +55,16 @@ function Chat()
 //     console.log(reciver)
         axios.post('https://sendchatback.onrender.com/postchat',data).then((response)=>{
     if(response.data.msg=="sent")
-    {
+        {
             document.getElementById("chat").value=""
-            if (audioRef.current) {
-                audioRef.current.play();
+            if (sentaudio.current) {
+                sentaudio.current.play();
               }
 
-        
-
-      }
+            {
+                <audio ref="audio_tag" src="./sent.mp3"  autoPlay style={{visibility:"hidden"}}/>
+            }
+        }
         else{
             alert("not sent")
         }
@@ -120,7 +131,9 @@ alert(re.data.msg)
         </center>
     </div>
     </center>
-    <audio ref={audioRef} src="/sent.mp3" style={{ visibility: "hidden" }} />
+    <audio ref={sentaudio} src="/sent.mp3" style={{ visibility: "hidden" }} />
+    <audio ref={reciveaudio} src="/recived.mp3" style={{ visibility: "hidden" }} />
+
 </div>
     )
 }

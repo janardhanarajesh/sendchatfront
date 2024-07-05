@@ -8,7 +8,7 @@ function Chat()
     const [prevChat, setPrevChat] = useState([]);
     const sentaudio = useRef(null);
     const reciveaudio = useRef(null);
-
+// console.log(date)
 
     useEffect(()=>{
         if(!localStorage.getItem("userlog"))
@@ -114,9 +114,13 @@ alert(re.data.msg)
                                    reciver: {ele.reciver}
                                 </tr>
                                 <tr>
-                                    <div id="mag">
-                                 message:   {ele.chating}
+                                <div id="mag">
+                                 {ele.date}
                                  </div>
+                                    <div id="mag">
+                             <b>message:  </b>     {ele.chating}
+                                 </div>
+                                 
                                 </tr>
                                 <tr>
                             

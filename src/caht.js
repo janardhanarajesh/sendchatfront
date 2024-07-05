@@ -16,13 +16,13 @@ function Chat()
     },[1])
     
     useEffect(()=>{
-        axios.get("http://localhost:2006/getchat/"+sender+"/"+reciver).then((resp)=>{
+        axios.get("https://sendchatback.onrender.com/getchat/"+sender+"/"+reciver).then((resp)=>{
            if (resp.data.msg=="chat")
             {
 
                 getchat(resp.data.chat);
                 
-
+ 
             }
             else{
                 alert("new chat")
@@ -43,18 +43,17 @@ function Chat()
 
         };
 //     console.log(reciver)
-        axios.post('http://localhost:2006/postchat',data).then((response)=>{
+        axios.post('https://sendchatback.onrender.com/postchat',data).then((response)=>{
     if(response.data.msg=="sent")
-        {
+    {
             document.getElementById("chat").value=""
             if (audioRef.current) {
                 audioRef.current.play();
               }
 
-            {
-                <audio ref="audio_tag" src="./sent.mp3"  autoPlay style={{visibility:"hidden"}}/>
-            }
-        }
+        
+
+      }
         else{
             alert("not sent")
         }
@@ -65,7 +64,7 @@ function Chat()
    
     const delchat=(e)=>{
 e.preventDefault();
-axios.delete("http://localhost:2006/delchat/"+e).then((re)=>{
+axios.delete("https://sendchatback.onrender.com/delchat/"+e).then((re)=>{
 alert(re.data.msg)
 })
     }

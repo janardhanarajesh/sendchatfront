@@ -19,7 +19,7 @@ function Chat()
     },[1])
     
     useEffect(()=>{
-        axios.get("http://localhost:2005/getchat/"+sender+"/"+reciver).then((resp)=>{
+        axios.get("https://sendchatback.onrender.com/getchat/"+sender+"/"+reciver).then((resp)=>{
            if (resp.data.msg=="chat")
             {
 
@@ -51,7 +51,7 @@ function Chat()
 
         };
 //     console.log(reciver)
-        axios.post('http://localhost:2005/postchat',data).then((response)=>{
+        axios.post('https://sendchatback.onrender.com/postchat',data).then((response)=>{
     if(response.data.msg=="sent")
         {
             document.getElementById("chat").value=""
@@ -73,7 +73,7 @@ function Chat()
    
     const Delchat=(e)=>{
 
-axios.delete("http://localhost:2005/delchat/"+e).then((re)=>{
+axios.delete("https://sendchatback.onrender.com/delchat/"+e).then((re)=>{
     if(re.data.msg="delete")
     {
 alert(re.data.msg)

@@ -19,7 +19,7 @@ function Chat()
     },[1])
     
     useEffect(()=>{
-        axios.get("https://sendchatback.onrender.com/getchat/"+sender+"/"+reciver).then((resp)=>{
+        axios.get("http://localhost:2005/getchat/"+sender+"/"+reciver).then((resp)=>{
            if (resp.data.msg=="chat")
             {
 
@@ -28,9 +28,7 @@ function Chat()
                 if (JSON.stringify(newChat) !== JSON.stringify(prevChat)) {
                     getchat(newChat);
                     setPrevChat(newChat);
-                    if (reciveaudio.current) {
-                      reciveaudio.current.play();
-                    }
+                    
                   }
     
             }
@@ -53,7 +51,7 @@ function Chat()
 
         };
 //     console.log(reciver)
-        axios.post('https://sendchatback.onrender.com/postchat',data).then((response)=>{
+        axios.post('http://localhost:2005/postchat',data).then((response)=>{
     if(response.data.msg=="sent")
         {
             document.getElementById("chat").value=""
@@ -71,12 +69,16 @@ function Chat()
 })
 
     }
-    // c onsole.log(chat)
+    //console.log(chat)--
    
-    const delchat=(e)=>{
-e.preventDefault();
-axios.delete("https://sendchatback.onrender.com/delchat/"+e).then((re)=>{
+    const Delchat=(e)=>{
+
+axios.delete("http://localhost:2005/delchat/"+e).then((re)=>{
+    if(re.data.msg="delete")
+    {
 alert(re.data.msg)
+
+    }
 })
     }
     return(
@@ -118,7 +120,7 @@ alert(re.data.msg)
                                 </tr>
                                 <tr>
                             
-                            <button onclick={()=>delchat(ele._id)} >delete</button>
+                                <button onClick={()=>Delchat(ele._id)}>delete</button>
                                 </tr>
                                 <br/>
                             </div>

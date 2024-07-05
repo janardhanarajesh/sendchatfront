@@ -1,11 +1,11 @@
 import axios from "axios";
-import { useEffect, useState } from "react"
+import { useEffect, useState,useRef } from "react"
 
 function Chat()
 {
 
     const [chat,getchat]=useState([])
-    const [chut,newchat]=useState([])
+    const audioRef = useRef(null);
 
     useEffect(()=>{
         if(!localStorage.getItem("userlog"))
@@ -14,18 +14,15 @@ function Chat()
                 window.location.href="/login"
             }
     },[1])
+    
     useEffect(()=>{
-        axios.get("https://sendchatback.onrender.com/getchat/"+sender+"/"+reciver).then((resp)=>{
+        axios.get("http://localhost:2006/getchat/"+sender+"/"+reciver).then((resp)=>{
            if (resp.data.msg=="chat")
             {
-             
 
-                    
                 getchat(resp.data.chat);
-                    
-                   
+                
 
-                // alert");
             }
             else{
                 alert("new chat")
@@ -46,10 +43,17 @@ function Chat()
 
         };
 //     console.log(reciver)
-        axios.post('https://sendchatback.onrender.com/postchat',data).then((response)=>{
+        axios.post('http://localhost:2006/postchat',data).then((response)=>{
     if(response.data.msg=="sent")
         {
             document.getElementById("chat").value=""
+            if (audioRef.current) {
+                audioRef.current.play();
+              }
+
+            {
+                <audio ref="audio_tag" src="./sent.mp3"  autoPlay style={{visibility:"hidden"}}/>
+            }
         }
         else{
             alert("not sent")
@@ -117,6 +121,7 @@ alert(re.data.msg)
         </center>
     </div>
     </center>
+    <audio ref={audioRef} src="/sent.mp3" style={{ visibility: "hidden" }} />
 </div>
     )
 }

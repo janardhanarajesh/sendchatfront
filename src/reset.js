@@ -17,6 +17,8 @@ let newpass=document.getElementById("pass").value;
 let user=localStorage.getItem("newpassuser");
 axios.put("https://sendchatback.onrender.com/newpass/"+newpass+"/"+user).then((resp)=>{
 alert(resp.data.msg)
+    localStorage.removeItem("newpassuser");
+   window.location.href="/login"
 })
     }
     return(

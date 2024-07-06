@@ -21,7 +21,7 @@ axios.get("https://sendchatback.onrender.com/findata/"+user+"/"+pass).then((res)
 
             
             alert("you have to register or invalid details")
-            window.location.href="/"
+            
         }
         else{
             let pid=res.data.ids;

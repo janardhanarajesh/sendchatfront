@@ -8,6 +8,8 @@ import Menu from './menu';
 import Login from './login';
 import Friend from './friend';
 import Chat from './caht';
+import Otp from './otp';
+import Reset from './reset';
 function App() {
   return (
     <div className="App">
@@ -32,6 +34,10 @@ function App() {
     <Route path='/login' element={<Login/>}/>
     <Route path='/friend' element={<Friend/>}/>
     <Route path='/chat' element={<Chat/>}/>
+    <Route path='/otp' element={<Otp/>}/>
+    <Route path='/reset' element={<Reset/>}/>
+
+
 
 
 

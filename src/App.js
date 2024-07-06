@@ -10,6 +10,7 @@ import Friend from './friend';
 import Chat from './caht';
 import Otp from './otp';
 import Reset from './reset';
+import Logo from './logo';
 function App() {
   return (
     <div className="App">
@@ -30,7 +31,9 @@ function App() {
      <BrowserRouter>
    <Menu/>
    <Routes>
-    <Route path='/' element={<Register/>}/>
+   <Route path='/' element={<Logo/>}/>
+    
+    <Route path='/register' element={<Register/>}/>
     <Route path='/login' element={<Login/>}/>
     <Route path='/friend' element={<Friend/>}/>
     <Route path='/chat' element={<Chat/>}/>

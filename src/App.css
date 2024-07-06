@@ -48,7 +48,7 @@ td{
   height: 50px;
   width: 250px;
   float: left;
-  
+  padding-top: 10px;
 
   
   /* float: left; */
@@ -86,7 +86,7 @@ input{
 font-size: 16px;
 }
 #logdiv{
-  height: 200px;
+  height: 240px;
   width: 400px;
   background:linear-gradient(to top right,blue,white);
   box-shadow: 2px 2px 5px black;
@@ -125,4 +125,19 @@ font-size: 16px;
   width: 300px;
   word-wrap:"break-word"
   
+}
+#otpdiv{
+  height: 200px;
+  width: 300px;
+  background:linear-gradient(to right,red,white);
+margin-top: 100px;
+  box-shadow: 2px 2px 5px black;
+
+}
+#resdiv{
+  margin-top: 100px;
+  height: 200px;
+  width: 300px;
+  background: linear-gradient(to top left,green,blue);
+  box-shadow: 2px 2px 5px black;
 }

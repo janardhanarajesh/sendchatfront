@@ -6,7 +6,7 @@ function Menu()
             <center>
                 <div id="submenu">
             <div className="subdivmenu">
-        <Link to="/" className="menulinik">sign up</Link>
+        <Link to="/register" className="menulinik">sign up</Link>
         </div>
         <div className="subdivmenu">
         <Link to="/login" className="menulinik">sign in</Link>

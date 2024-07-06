@@ -15,7 +15,7 @@ function Reset()
 e.preventDefault();
 let newpass=document.getElementById("pass").value;
 let user=localStorage.getItem("newpassuser");
-axios.put("http://localhost:2005/newpass/"+newpass+"/"+user).then((resp)=>{
+axios.put("https://sendchatback.onrender.com/newpass/"+newpass+"/"+user).then((resp)=>{
 alert(resp.data.msg)
 })
     }

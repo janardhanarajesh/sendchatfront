@@ -7,13 +7,13 @@ function Otp()
         e.preventDefault();
         let nam=document.getElementById("nam").value;
         localStorage.setItem("newpassuser",nam)
-        axios.get("http://localhost:2005/finduser/"+nam).then((respo)=>{
+        axios.get("https://sendchatback.onrender.com/finduser/"+nam).then((respo)=>{
 if(respo.data.msg=="sent")
 {
     var otp=Math.floor(Math.random()*60000)
     localStorage.setItem("otp",otp)
     // console.log(otp)
-    axios.get("http://localhost:2005/sendotp/"+nam+"/"+otp).then((response)=>{
+    axios.get("https://sendchatback.onrender.com/sendotp/"+nam+"/"+otp).then((response)=>{
         if(response.data.msg=="sent")
         {
             alert("otp sent to registerder email");

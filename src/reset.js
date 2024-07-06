@@ -5,7 +5,7 @@ function Reset()
 {
 
     useEffect(()=>{
-        if(!localStorage.getItem("userlog"))
+        if(!localStorage.getItem("newpassuser")) 
         {
             alert("have to enter otp");
             window.location.href="/otp"

@@ -141,3 +141,11 @@ margin-top: 100px;
   background: linear-gradient(to top left,green,blue);
   box-shadow: 2px 2px 5px black;
 }
+
+#body{
+  background-image: url("../public/sendcaht.jpg");
+  background-size:100% 100%;
+  height: 600px;
+  width: 1260px;
+  background-repeat: no-repeat;
+}

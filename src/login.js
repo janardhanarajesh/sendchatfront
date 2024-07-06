@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login()
 {
@@ -20,7 +21,7 @@ axios.get("https://sendchatback.onrender.com/findata/"+user+"/"+pass).then((res)
 
             
             alert("you have to register or invalid details")
-            // window.location.href="/"
+            window.location.href="/"
         }
         else{
             let pid=res.data.ids;
@@ -55,9 +56,10 @@ window.location.href="/friend"
                 <br/>
                 <br/>
 
-                <input type="submit" style={{height:"30px"}} value="login"/>
+                <input type="submit" style={{height:"30px"}} value="sign in"/>
 
             </form>
+            <Link to="/otp" style={{color:"white"}}>forgot password</Link>
         </div>
         </center>
         </div>

@@ -19,9 +19,20 @@ let nameu=studenti.name
           axios.post('https://sendchatback.onrender.com/register', studenti)
             .then((res) => {
               alert(res.data.msg);
-              window.location.reload();
+              if(res.data.msg=="registred successfully")
+              {
+                axios.get('https://sendchatback.onrender.com/success/'+nameu )
+                .then((re) => {
+                  alert(re.data.msg);
+                  window.location.reload();
+                  window.location.href="/login"
+                });
+ window.location.reload();
               window.location.href="/login"
+              }
+             
             });
+           
         } 
         else{
           alert("already registered");
@@ -73,7 +84,7 @@ let nameu=studenti.name
             />
             <br /><br />
 
-            <input type="submit" value="register" style={{height:"30px"}} />
+            <input type="submit" value="sign up" style={{height:"30px"}} />
           </form>
           <p>Already registered? <Link to="/login">Click here</Link></p>
         </div>

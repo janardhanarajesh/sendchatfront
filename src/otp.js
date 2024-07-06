@@ -29,7 +29,7 @@ else{
 
 }
         })
-    setTimeout(removeotp,10000);
+    setTimeout(removeotp,60000);
 
     }
     const removeotp=()=>{
